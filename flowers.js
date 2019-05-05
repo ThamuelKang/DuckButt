@@ -3,7 +3,7 @@ let flower;
 let lotus;
 let leaf;
 let tulip;
-var bigEye;
+var bigEye = 1;
 var cnv;
 
 
@@ -23,6 +23,8 @@ function setup() {
   pixelDensity(4);
   cnv = createCanvas(600, 600);
   centerCanvas();
+
+
 }
 
 function centerCanvas() {
@@ -39,7 +41,19 @@ function draw() {
 
   image(img, 0, 0, width, height);
 
+  print(bigEye);
 
+  ellipse(280, 180, 14 + bigEye, 14 + bigEye);
+  fill('#000000');
+  ellipse(277 + mouseX / 100, 178 + mouseY / 100, 8 + bigEye/2, 8 + bigEye/2);
+  fill('#FFFFFF');
+  print(bigEye)
+
+  ellipse(303, 170, 14 + bigEye, 14 + bigEye);
+  fill('#000000');
+
+  ellipse(300 + mouseX / 100, 168 + mouseY / 100, 8 + bigEye/2, 8 + bigEye/2);
+  fill('#FFFFFF');
   if (mouseX > 0 && mouseX < 70) {
     image(flower, 75, 250, 17, 17);
     image(flower, -5, 450, 17, 17);
@@ -131,8 +145,16 @@ function draw() {
 
   //eye
   noStroke();
-  bigEye = 0;
 
+  if (mouseIsPressed == true) {
+    bigEye += .4;
+  }
+  else if (mouseIsPressed == false){
+    bigEye -= 2;
+    if(bigEye < 1) {
+      bigEye = 1;
+    }
+  }
   // rect(274, 171, 14 + bigEye, 14 + bigEye, 10);
   // fill('#000000');
   // rect(274 + mouseX / 100, 171 + mouseY / 100, 8 + bigEye, 8 + bigEye, 10);
@@ -144,33 +166,33 @@ function draw() {
   //
   // rect(297 + mouseX / 100, 165 + mouseY / 100, 8 + bigEye, 8 + bigEye, 10);
   // fill('#FFFFFF');
-  if (mouseIsPressed == true) {
-    bigEye = bigEye + 2;
-    rect(274, 171, 14 + bigEye, 14 + bigEye, 10);
-    fill('#000000');
-    rect(274 + mouseX / 100, 171 + mouseY / 100, 8 + bigEye, 8 + bigEye, 10);
-    fill('#FFFFFF');
-    print(bigEye)
-
-    rect(297, 165, 14 + bigEye, 14 + bigEye, 10);
-    fill('#000000');
-
-    rect(297 + mouseX / 100, 165 + mouseY / 100, 8 + bigEye, 8 + bigEye, 10);
-    fill('#FFFFFF');
-
-  } else if (mouseIsPressed == false) {
-    bigEye = bigEye - 1;
-    rect(274, 171, 14 + bigEye, 14 + bigEye, 10);
-    fill('#000000');
-    rect(274 + mouseX / 100, 171 + mouseY / 100, 8 + bigEye, 8 + bigEye, 10);
-    fill('#FFFFFF');
-    print(bigEye)
-
-    rect(297, 165, 14 + bigEye, 14 + bigEye, 10);
-    fill('#000000');
-
-    rect(297 + mouseX / 100, 165 + mouseY / 100, 8 + bigEye, 8 + bigEye, 10);
-    fill('#FFFFFF');
-
-  }
+  // if (mouseIsPressed == true) {
+  //   bigEye = bigEye + 2;
+  //   // rect(274, 171, 14 + bigEye, 14 + bigEye, 10);
+  //   // fill('#000000');
+  //   // rect(274 + mouseX / 100, 171 + mouseY / 100, 8 + bigEye, 8 + bigEye, 10);
+  //   // fill('#FFFFFF');
+  //   // print(bigEye)
+  //   //
+  //   // rect(297, 165, 14 + bigEye, 14 + bigEye, 10);
+  //   // fill('#000000');
+  //   //
+  //   // rect(297 + mouseX / 100, 165 + mouseY / 100, 8 + bigEye, 8 + bigEye, 10);
+  //   // fill('#FFFFFF');
+  //
+  // } else if (mouseIsPressed == false) {
+  //   bigEye = bigEye - 1;
+  //   // rect(274, 171, 14 + bigEye, 14 + bigEye, 10);
+  //   // fill('#000000');
+  //   // rect(274 + mouseX / 100, 171 + mouseY / 100, 8 + bigEye, 8 + bigEye, 10);
+  //   // fill('#FFFFFF');
+  //   // print(bigEye)
+  //   //
+  //   // rect(297, 165, 14 + bigEye, 14 + bigEye, 10);
+  //   // fill('#000000');
+  //   //
+  //   // rect(297 + mouseX / 100, 165 + mouseY / 100, 8 + bigEye, 8 + bigEye, 10);
+  //   // fill('#FFFFFF');
+  //
+  // }
 }
